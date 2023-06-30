@@ -28,15 +28,15 @@
     padding-left: 1.25rem;
     background-color: var(--dark-50);
     transition: all 150ms ease-in-out;
+  }
+}
 
-    &:hover,
-    &.active {
-      background-color: var(--primary);
-      color: var(--dark-100);
+.nav a:hover,
+a.active {
+  background-color: var(--primary);
+  color: var(--dark-100);
 
-      img {
-        filter: grayscale(1) invert(1);
-      }
-    }
+  img {
+    filter: grayscale(1) invert(1);
   }
 }
