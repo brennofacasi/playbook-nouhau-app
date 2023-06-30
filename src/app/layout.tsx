@@ -1,6 +1,6 @@
-import Sidebar from "@/components/Sidebar";
-import "./globals.css";
+import "./globals.scss";
 import { Manrope } from "next/font/google";
+import Sidebar from "@/components/Sidebar";
 
 const inter = Manrope({ subsets: ["latin"], weight: ["300", "400", "700"] });
 
