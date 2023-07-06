@@ -1,38 +1,35 @@
+import { fetchApi } from "@/services/fetch";
+import Link from "next/link";
+import styles from "./styles.module.scss";
+
 import { Card } from "@/components/Card";
 import { GameCard } from "@/components/GameCard";
-import styles from "./styles.module.scss";
 import { GameCardProps } from "@/components/GameCard/types";
 
-export default function Games() {
-  const games: GameCardProps[] = [
-    {
-      title: "Gerentes em ação",
-      players: "20",
-      time: 35,
-      tags: ["Estressor", "Conector"],
-    },
-    {
-      title: "Mistérios Nouhau",
-      players: "+20",
-      time: 20,
-      tags: ["Integrador", "Desafiador"],
-    },
-    {
-      title: "Ganha-grana",
-      players: "+10",
-      time: 45,
-      tags: ["Estressor"],
-    },
-  ];
+async function getGames() {
+  const res = await fetchApi("game");
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+export default async function Games() {
+  const data: GameCardProps[] = await getGames();
+
+  if (!data) return <p>Erro</p>;
 
   return (
     <>
-      <Card>
+      <Card.Root>
+        <Card.Avatar />
         <h2>Jogos</h2>
-      </Card>
+      </Card.Root>
       <section className={styles.row}>
-        {games.map((game, index) => (
-          <GameCard key={index} data={game} />
+        {data.map((game) => (
+          <Link href={`/jogos/${game.id}`}>
+            <GameCard key={game.id} data={game} />
+          </Link>
         ))}
       </section>
     </>
