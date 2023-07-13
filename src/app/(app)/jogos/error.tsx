@@ -5,9 +5,9 @@ import { Card } from "@/components/Card";
 export default function Error() {
   return (
     <>
-      <Card>
+      <Card.Root>
         <h2>Jogos</h2>
-      </Card>
+      </Card.Root>
       <div>Erro</div>
     </>
   );

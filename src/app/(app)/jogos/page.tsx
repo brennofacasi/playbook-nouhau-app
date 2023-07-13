@@ -1,10 +1,9 @@
 import { fetchApi } from "@/services/fetch";
-import Link from "next/link";
+
 import styles from "./styles.module.scss";
 
-import { Card } from "@/components/Card";
 import { GameCard } from "@/components/GameCard";
-import { GameCardProps } from "@/components/GameCard/types";
+import { Header } from "@/components/Header";
 
 async function getGames() {
   const res = await fetchApi("game");
@@ -16,21 +15,20 @@ async function getGames() {
 
 export default async function Games() {
   const data: GameCardProps[] = await getGames();
-
   if (!data) return <p>Erro</p>;
 
   return (
     <>
-      <Card.Root>
-        <Card.Avatar />
-        <h2>Jogos</h2>
-      </Card.Root>
-      <section className={styles.row}>
-        {data.map((game) => (
-          <Link href={`/jogos/${game.id}`}>
+      <section className={styles.games}>
+        <Header.Topbar />
+        <Header.Root>
+          <h2>Jogos</h2>
+        </Header.Root>
+        <section className={styles.row}>
+          {data.map((game) => (
             <GameCard key={game.id} data={game} />
-          </Link>
-        ))}
+          ))}
+        </section>
       </section>
     </>
   );
