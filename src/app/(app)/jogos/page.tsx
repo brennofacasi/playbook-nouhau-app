@@ -19,16 +19,14 @@ export default async function Games() {
 
   return (
     <>
-      <section className={styles.games}>
-        <Header.Topbar />
-        <Header.Root>
-          <h2>Jogos</h2>
-        </Header.Root>
-        <section className={styles.row}>
-          {data.map((game) => (
-            <GameCard key={game.id} data={game} />
-          ))}
-        </section>
+      <Header.Topbar />
+      <Header.Root>
+        <h2>Jogos</h2>
+      </Header.Root>
+      <section className={styles.row}>
+        {data.map((game) => (
+          <GameCard key={game.id} data={game} />
+        ))}
       </section>
     </>
   );
