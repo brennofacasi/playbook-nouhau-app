@@ -1,5 +1,6 @@
 .game {
   &__detail {
+    padding: 1.25rem;
     ul {
       margin-top: 1rem;
       display: flex;
@@ -15,14 +16,14 @@
   }
 }
 
-.row {
+.columns {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 1rem;
 }
 
 .article {
-  padding: 1rem;
+  padding: 1.25rem;
 
   p {
     margin-block: 0 1rem;
@@ -62,6 +63,22 @@
     &:hover {
       background-color: #ffffff;
       transform: scale(1.05);
+    }
+  }
+}
+
+.assets {
+  padding: 1.25rem;
+
+  &__items {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    color: var(--dark-100);
+    div {
+      padding: 0.5rem 0.75rem;
+      border-radius: 2rem;
+      background-color: var(--primary);
     }
   }
 }

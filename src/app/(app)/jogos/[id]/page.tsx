@@ -1,15 +1,16 @@
 import Image from "next/image";
+import HTMLReactParser from "html-react-parser";
 import { fetchApi } from "@/services/fetch";
+
 import styles from "./styles.module.scss";
 
 import { Card } from "@/components/Card";
 
 import user from "@/icons/user.svg";
 import users from "@/icons/users.svg";
-import heart from "@/icons/heart.svg";
 import clock from "@/icons/clock.svg";
-import { Tag } from "@/components/Tag";
-import HTMLReactParser from "html-react-parser";
+import Columns from "./columns";
+import { Header } from "@/components/Header";
 
 async function getGame(id: string) {
   const res = await fetchApi(`game/${id}`);
@@ -23,10 +24,10 @@ export default async function Game({ params }: { params: { id: string } }) {
   const game = await getGame(params.id);
   return (
     <>
-      <Card.Root>
-        <Card.Avatar />
-        <h2>{game.title}</h2>
+      <Header.Topbar />
+      <Card>
         <div className={styles.game__detail}>
+          <h2>{game.title}</h2>
           <ul>
             <li>
               <Image src={clock} alt='Ícone de relógio' />
@@ -42,15 +43,28 @@ export default async function Game({ params }: { params: { id: string } }) {
             </li>
           </ul>
         </div>
-      </Card.Root>
+      </Card>
 
-      <section className={styles.row}>
-        <Card.Root>
-          <article className={styles.article}>
-            <h3 className='highlight'>O que é?</h3>
-            {HTMLReactParser(game.steps)}
-          </article>
-        </Card.Root>
+      <Columns>
+        <div>
+          <Card>
+            <article className={styles.article}>
+              <h3 className='highlight'>O que é?</h3>
+              {HTMLReactParser(game.steps)}
+            </article>
+          </Card>
+
+          <Card>
+            <div className={styles.assets}>
+              <h4 className='highlight'>Materiais</h4>
+              <div className={styles.assets__items}>
+                {game.assets.map((item: any) => (
+                  <div key={item.assets.name}>{item.assets.name}</div>
+                ))}
+              </div>
+            </div>
+          </Card>
+        </div>
 
         <div className={styles.skills}>
           {game.skills.map((item: any) => (
@@ -59,7 +73,7 @@ export default async function Game({ params }: { params: { id: string } }) {
             </div>
           ))}
         </div>
-      </section>
+      </Columns>
     </>
   );
 }
