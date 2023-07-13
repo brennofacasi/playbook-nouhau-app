@@ -7,9 +7,11 @@ import Image from "next/image";
 import styles from "./styles.module.scss";
 import joystick from "@/icons/joystick.svg";
 import { links } from "./links";
+import { signOut } from "next-auth/react";
 
 const Sidebar = () => {
   const pathname = usePathname();
+
   return (
     <aside>
       <div className={styles.logo}>
@@ -18,14 +20,15 @@ const Sidebar = () => {
       <nav className={styles.nav}>
         {links.map((link, index) => (
           <Link
-            key={index}
+            key={link.href}
             href={link.href}
-            className={pathname === link.href ? styles.active : ""}
+            className={pathname.includes(link.href) ? styles.active : ""}
           >
             <Image src={link.icon} alt={`Ícone ${link.label}`} />
-            {link.label}
+            <span className={styles.nav__label}>{link.label}</span>
           </Link>
         ))}
+        <a onClick={() => signOut()}>Sair</a>
       </nav>
     </aside>
   );
