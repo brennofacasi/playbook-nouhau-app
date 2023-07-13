@@ -1,14 +1,15 @@
 import { Card } from "@/components/Card";
 import styles from "./styles.module.scss";
 import Image from "next/image";
+import Hero from "./hero";
+import { Header } from "@/components/Header";
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
+      <Header.Topbar />
+      <Hero />
       <Card>
-        <h1>
-          Playbook <span className='light highlight'>Nouhau</span>
-        </h1>
         <section className={styles.recent}>
           <h5>Jogos recentes</h5>
           <div className={styles.recent__row}>
@@ -32,17 +33,6 @@ export default function Home() {
               src='/images/misterios@2x.png'
               alt='Empresa de Participação'
             />
-          </div>
-        </section>
-
-        <section>
-          <h5>Habilidades</h5>
-
-          <div className={styles.skills__row}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
           </div>
         </section>
       </Card>
