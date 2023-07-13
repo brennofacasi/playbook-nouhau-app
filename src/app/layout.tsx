@@ -1,7 +1,11 @@
+import Provider from "@/components/Provider";
 import "./globals.scss";
 import { Manrope } from "next/font/google";
 
-const inter = Manrope({ subsets: ["latin"], weight: ["300", "400", "700"] });
+const inter = Manrope({
+  subsets: ["latin"],
+  weight: ["300", "400", "700", "800"],
+});
 
 export const metadata = {
   title: "Playbook Nouhau",
@@ -15,7 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Provider>{children}</Provider>
+      </body>
     </html>
   );
 }
