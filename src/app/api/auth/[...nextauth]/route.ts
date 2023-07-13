@@ -10,27 +10,26 @@ export const authOption: NextAuthOptions = {
     CredentialsProvider({
       name: "Nouhau",
       credentials: {
-        username: { type: "email" },
+        username: { type: "text" },
         password: { type: "password" },
       },
       async authorize(credentials) {
-        const authResponse = await fetch("http://localhost:3030/auth/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: credentials?.username,
-            password: credentials?.password,
-          }),
-        });
+        const user = {
+          id: "282897",
+          name: "Brenno",
+          username: "brenno",
+          password: "senhadificil",
+          image: "https://avatars.githubusercontent.com/u/44979517?v=4",
+        };
 
-        if (!authResponse.ok) {
+        if (
+          credentials?.username !== user.username ||
+          credentials?.password !== user.password
+        ) {
           return null;
         }
-
-        const user = await authResponse.json();
-        return user;
+        const { password, ...rest } = user;
+        return rest;
       },
     }),
   ],
