@@ -1,7 +1,7 @@
 import { useSession } from "next-auth/react";
 import styles from "./styles.module.scss";
 
-export const Avatar = ({ name }: { name: string }) => {
+export const Avatar = () => {
   const { data } = useSession();
   return (
     <div className={styles.avatar__wrapper}>

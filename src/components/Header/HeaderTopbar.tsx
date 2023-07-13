@@ -20,7 +20,7 @@ export const HeaderTopbar = () => {
           </button>
         )}
         <input type='text' className={styles.search} />
-        <Avatar name='Brenno' />
+        <Avatar />
       </div>
     </Card>
   );
