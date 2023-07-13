@@ -14,7 +14,7 @@ interface INavLinks {
 export const links: Array<INavLinks> = [
   {
     label: "Painel",
-    href: "/",
+    href: "/painel",
     icon: grid,
   },
   {
@@ -23,13 +23,13 @@ export const links: Array<INavLinks> = [
     icon: games,
   },
   {
-    label: "Categorias",
-    href: "/categories",
-    icon: layers,
+    label: "Favoritos",
+    href: "/favoritos",
+    icon: heart,
   },
   {
     label: "Habilidades",
     href: "/habilidades",
-    icon: heart,
+    icon: layers,
   },
 ];
