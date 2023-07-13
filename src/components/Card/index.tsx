@@ -1,7 +1,9 @@
-import { CardRoot } from "./CardRoot";
-import { CardTopbar } from "./CardTopbar";
+import styles from "./styles.module.scss";
 
-export const Card = {
-  Root: CardRoot,
-  Topbar: CardTopbar,
+interface CardProps {
+  children: React.ReactNode;
+}
+
+export const Card = ({ children }: CardProps) => {
+  return <div className={styles.card__body}>{children}</div>;
 };
