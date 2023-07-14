@@ -12,12 +12,10 @@ export const GameCard = ({ data }: { data: GameCardProps }) => {
   return (
     <div className={styles.body}>
       <Link href={`/jogos/${data.id}`}>
-        <Image
+        <img
           className={styles.featured}
           src={data.image}
-          alt='oi'
-          width={608}
-          height={368}
+          alt='Imagem do jogo'
         />
       </Link>
       <header className={styles.header}>
@@ -35,7 +33,7 @@ export const GameCard = ({ data }: { data: GameCardProps }) => {
       </header>
 
       {data.skills.map((skill) => (
-        <Tag key={skill.skills.name}>{skill.skills.name}</Tag>
+        <Tag key={skill}>{skill}</Tag>
       ))}
       <footer className={styles.footer}>
         <div className={styles.buttons}>
