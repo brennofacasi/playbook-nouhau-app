@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function fetchApi(path: string, options?: any) {
-  return await fetch(process.env.API_URL + "/" + path, options);
+  return await fetch(process.env.NEXT_PUBLIC_API_URL + "/" + path, options);
 }
 
 export const clientFetch = axios.create({
