@@ -15,7 +15,6 @@ async function getGames() {
 
 export default async function Games() {
   const data: GameCardProps[] = await getGames();
-  if (!data) return <p>Erro</p>;
 
   return (
     <>
