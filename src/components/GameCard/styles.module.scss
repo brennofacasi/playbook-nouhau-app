@@ -23,7 +23,8 @@
 .featured {
   background-color: var(--dark-100);
   display: block;
-  height: auto;
+  height: 12rem;
+  object-fit: cover;
   width: 100%;
   border-radius: 1.375rem;
   // margin: -0.625rem -0.625rem 1rem -0.625rem;
