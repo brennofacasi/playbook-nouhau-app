@@ -6,5 +6,5 @@ interface GameCardProps {
   maxGroups: number;
   image: string;
   favorite: boolean;
-  skills: Array<any>;
+  skills: Array<string>;
 }
