@@ -4,7 +4,7 @@
 
 # Playbook Nouhau
 
-A Nouhau é uma startup de transformação de culturas organizacionais por meio de metodologias inovadoras. Através de jogos empresariais, a empresa estimula o desenvolvimento de competências socioemocionais (soft skills) com estratégia.
+A [Nouhau](https://nouhau.pro/) é uma startup de transformação de culturas organizacionais por meio de metodologias inovadoras. Através de jogos empresariais, a empresa estimula o desenvolvimento de competências socioemocionais (soft skills) com estratégia.
 
 Para esse projeto de MVP, foi desenvolvido o **Playbook Nouhau**, uma plataforma de consulta e categorização de jogos estratégicos. Na aplicação, facilitadoras e facilitadores poderão ler mais sobre os jogos, ver quais soft skills cada um potencializa, e também favoritar seus preferidos. 😎
 
